@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Валентинка 💖</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <audio id="bg-music" loop>
+        <source src="https://www.dropbox.com/scl/fi/crwh1tq5bmojrnc6h46kx/WhatsApp-Audio-2025-02-08-at-00.09.47-mp3cut.net-1.mp3?rlkey=1txby3ykm7juvleew4yaj1t5f&st=z0f8lfb9&dl=1" type="audio/mp3">
+    </audio>
+
+    <button class="music-btn" onclick="toggleMusic()">🎵 Музыка</button>
+
+    <h1>С Днем Святого Валентина, пушониым меным ❤️!</h1>
+
+    <div class="container">
+        <div class="text-block">
+          <p>Ты – мой воздух, ты – мой свет,</p>
+          <p>Ты – мой самый главный ответ.</p>
+          <p>Без тебя мир стал бы пустым,</p>
+          <p>Сердце билось бы не в ритм.</p>
+          <p>С тобой – счастье, с тобой – мечта,</p>
+          <p>С тобой дорога мне так легка.</p>
+          <p>Ты – мой смысл, моя судьба,</p>
+          <p>Я люблю тебя навсегда!</p>
+        </div>
+
+        <div class="photo-grid">
+            <img src="https://i.postimg.cc/KcVy4rY6/photo-2025-01-08-19-15-13.jpg" alt="Фото 1">
+            <img src="https://i.postimg.cc/9z3SbbRz/photo-2023-01-12-14-57-50.jpg" alt="Фото 2">
+            <img src="https://i.postimg.cc/sD7Dr0J6/photo-2022-12-03-19-44-47.jpg" alt="Фото 3">
+            <img src="https://i.postimg.cc/C1zrGkQX/272bd82e-6da7-4c8b-8da2-70b298fa3cc6.jpg" alt="Фото 4">
+        </div>
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.innerHTML = Math.random() > 0.5 ? "💌" : "🎀";
+            heart.classList.add("heart");
+            document.body.appendChild(heart);
+
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.top = Math.random() * 100 + "vh"; 
+            heart.style.animationDuration = Math.random() * 5 + 5 + "s";
+
+            setTimeout(() => heart.remove(), 10000);
+        }
+
+        setInterval(createHeart, 300);
+
+        let isPlaying = false;
+        const audio = document.getElementById("bg-music");
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+            } else {
+                audio.play().catch(error => console.log("Автовоспроизведение заблокировано"));
+            }
+            isPlaying = !isPlaying;
+        }
+    </script>
+
+</body>
+</html>
